@@ -1,0 +1,10 @@
+bricks:
+  screen:
+    git:
+      url: "git@github.com:sharmashashi/mason_bricks.git"
+      path: bricks/screen
+
+  feature:
+    git:
+      url: "git@github.com:sharmashashi/mason_bricks.git"
+      path: bricks/feature
