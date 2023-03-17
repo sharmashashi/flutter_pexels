@@ -1,4 +1,4 @@
-import 'package:flutter_pexels/core/services/http_service_impl.dart';
+import 'package:flutter_pexels/core/services/http/http_service_impl.dart';
 import 'package:flutter_pexels/features/popular_photos/models/popular_photos_response.dart';
 import 'package:flutter_pexels/features/popular_photos/repositories/popular_photos_repository_impl.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

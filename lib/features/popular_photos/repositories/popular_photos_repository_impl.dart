@@ -1,5 +1,5 @@
 import 'package:flutter_pexels/core/configs/configs.dart';
-import 'package:flutter_pexels/core/services/http_service.dart';
+import 'package:flutter_pexels/core/services/http/http_service.dart';
 import 'package:flutter_pexels/features/popular_photos/models/popular_photos_response.dart';
 import 'package:flutter_pexels/features/popular_photos/repositories/popular_photos_repository.dart';
 

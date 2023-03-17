@@ -1,6 +1,0 @@
-version: "Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)"
-options: "ba26e265bf6f67ee36f59486ea5a409ba11a2637c54778f0d1ac356584de7efb"
-build_start_time: [1678959444, 842879056]
-build_end_time: [1678959444, 941890001]
-inputs:
-  "/Users/shashisharma/Projects/flutter/flutter_pexels/ios/Runner/AppDelegate.swift": !private [1650309730, 0]

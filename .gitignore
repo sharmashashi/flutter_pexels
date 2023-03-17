@@ -46,3 +46,6 @@ app.*.map.json
 
 .mason
 .env
+**.g.dart
+**.freezed.dart
+ios/Build/
