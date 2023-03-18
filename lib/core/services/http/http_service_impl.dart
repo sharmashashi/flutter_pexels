@@ -15,7 +15,7 @@ class HttpServiceImpl implements HttpService {
   @override
   Future<Map<String, dynamic>> get(String endpoint,
       {Map<String, dynamic>? queryParameters}) async {
-        log("HttpService: GET");
+    log("HttpService: GET");
     final response = await http.get(
         Uri.parse(endpoint).replace(
           queryParameters: queryParameters,

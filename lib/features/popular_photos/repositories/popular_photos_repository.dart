@@ -10,6 +10,6 @@ final popularPhotosRepositoryProvider =
 
 abstract class PopularPhotosRepository {
   String get path;
-  String get apiKey;
-  Future<PopularPhotosResponse> getPopularPhotos({int perPage = 50, int page = 1});
+  Future<PopularPhotosResponse> getPopularPhotos(
+      {int perPage = 50, int page = 1});
 }

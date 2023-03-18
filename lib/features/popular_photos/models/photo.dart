@@ -14,7 +14,7 @@ class Photo {
       required this.source,
       required this.photographer});
 
-  static Photo fromMap(Map<String, dynamic> jsonDecoded) {
+  static Photo fromJson(Map<String, dynamic> jsonDecoded) {
     late Photo photo;
     try {
       final src = PhotoSource.fromMap(jsonDecoded['src']);

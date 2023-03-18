@@ -1,7 +1,5 @@
 import 'package:flutter_pexels/features/popular_photos/models/photo.dart';
 
-
-
 class PopularPhotosResponse {
   final int page, perPage;
   final String nextPage;
@@ -12,11 +10,11 @@ class PopularPhotosResponse {
       required this.perPage,
       required this.photos});
 
-  static PopularPhotosResponse fromMap(Map<String, dynamic> jsonDecoded) {
+  static PopularPhotosResponse fromJson(Map<String, dynamic> jsonDecoded) {
     return PopularPhotosResponse(
         nextPage: jsonDecoded['next_page'],
         page: jsonDecoded['page'],
         perPage: jsonDecoded['per_page'],
-        photos: [for (var each in jsonDecoded['photos']) Photo.fromMap(each)]);
+        photos: [for (var each in jsonDecoded['photos']) Photo.fromJson(each)]);
   }
 }

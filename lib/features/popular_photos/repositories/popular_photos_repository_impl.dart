@@ -3,11 +3,7 @@ import 'package:flutter_pexels/core/services/http/http_service.dart';
 import 'package:flutter_pexels/features/popular_photos/models/popular_photos_response.dart';
 import 'package:flutter_pexels/features/popular_photos/repositories/popular_photos_repository.dart';
 
-
-
 class PopularPhotosRepositoryImpl implements PopularPhotosRepository {
-  @override
-  String get apiKey => Configs.apiKey;
 
   @override
   String get path => '/curated';
@@ -20,8 +16,11 @@ class PopularPhotosRepositoryImpl implements PopularPhotosRepository {
   Future<PopularPhotosResponse> getPopularPhotos(
       {int perPage = 50, int page = 1}) async {
     final responseData = await httpService.get(Configs.baseUrl + path,
-        queryParameters: {'perPage': perPage.toString(), 'page': page.toString()});
+        queryParameters: {
+          'perPage': perPage.toString(),
+          'page': page.toString()
+        });
 
-    return PopularPhotosResponse.fromMap(responseData);
+    return PopularPhotosResponse.fromJson(responseData);
   }
 }
