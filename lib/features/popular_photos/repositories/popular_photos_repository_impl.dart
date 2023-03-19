@@ -4,7 +4,6 @@ import 'package:flutter_pexels/features/popular_photos/models/popular_photos_res
 import 'package:flutter_pexels/features/popular_photos/repositories/popular_photos_repository.dart';
 
 class PopularPhotosRepositoryImpl implements PopularPhotosRepository {
-
   @override
   String get path => '/curated';
 

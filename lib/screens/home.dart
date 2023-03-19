@@ -8,6 +8,10 @@ class Home extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return const Scaffold(body: SafeArea(child: PopularVideos()));
+    return Scaffold(
+        body: SafeArea(
+            child: PageView(
+      children: const [PopularPhotos(), PopularVideos()],
+    )));
   }
 }

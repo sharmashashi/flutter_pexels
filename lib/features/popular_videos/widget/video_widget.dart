@@ -27,7 +27,8 @@ class _VideoWidgetState extends State<VideoWidget> {
             autoInitialize: true);
 
         setState(() {
-          player = Chewie(controller: chewieController,
+          player = Chewie(
+            controller: chewieController,
           );
         });
       });

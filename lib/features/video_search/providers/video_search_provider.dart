@@ -1,12 +1,13 @@
 import 'package:flutter_pexels/core/models/paginated_data.dart';
 import 'package:flutter_pexels/features/popular_videos/models/popular_videos_response.dart';
 import 'package:flutter_pexels/features/popular_videos/models/video.dart';
-import 'package:flutter_pexels/features/popular_videos/repositories/popular_videos_repository.dart';
+import 'package:flutter_pexels/features/video_search/providers/query_provider.dart';
+import 'package:flutter_pexels/features/video_search/repositories/video_search_repository.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-part 'popular_videos_provider.g.dart';
+part 'video_search_provider.g.dart';
 
 @riverpod
-class PopularVideos extends _$PopularVideos {
+class VideoSearch extends _$VideoSearch {
   @override
   Future<PaginatedData<Video>> build() async {
     final videosResponse = await _fetch();
@@ -18,9 +19,11 @@ class PopularVideos extends _$PopularVideos {
   }
 
   Future<PopularVideosResponse> _fetch({int page = 1}) async {
-    return await ref
-        .read(popularVideosRepositoryProvider)
-        .getPopularVideos(page: page, perPage: 50);
+    final query = ref.watch(videoQueryProvider);
+    final videoResponse = await ref
+        .read(videoSearchRepositoryProvider)
+        .searchVideos(page: page, perPage: 1, query: query);
+    return videoResponse;
   }
 
   fetchNext() async {
