@@ -5,10 +5,13 @@ An app that lets you search and view photos and videos provided by [Pexels API](
 <!-- # Demo
 ![Pexels Photos](/demo/pexels_images_demo.gif) ![Pexels Videos](/demo/pexels_videos_demo.gif) -->
 # Screenshots
-![](/demo/image1.png)
-![](/demo/image2.png)
-![](/demo/video1.png)
-![](/demo/video2.png)
+<div class="row">
+<img src = "./demo/image1.png" width=200></img>
+<img src = "./demo/image2.png" width=200></img>
+<img src = "./demo/video1.png" width=200></img>
+<img src = "./demo/video2.png" width=200></img>
+</div>
+
 # How to use
 ## Step 1:
 Clone this repository
