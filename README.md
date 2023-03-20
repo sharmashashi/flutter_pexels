@@ -1,16 +1,75 @@
 # flutter_pexels
 
-A new Flutter project.
+An app that lets you search and view photos and videos provided by [Pexels API](https://www.pexels.com/api/).
 
-## Getting Started
+# Demo
+![Pexels Photos](/demo/pexels_images_demo.gif) ![Pexels Videos](/demo/pexels_videos_demo.gif)
 
-This project is a starting point for a Flutter application.
+# How to use
+## Step 1:
+Clone this repository
+```
+git clone git@github.com:sharmashashi/flutter_pexels.git
+```
 
-A few resources to get you started if this is your first Flutter project:
+## Step 2:
+Goto the project root and get the dependencies
+```
+cd flutter_pexels && flutter pub get
+```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Step 3:
+This project uses riverpod with code generation and generated files are not included in git. Run the following command to generate missing libraries
+```
+flutter packages pub run build_runner build --delete-conflicting-outputs
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Step 4:
+At the root of the project, create .env file that contains your [Pexels API key](https://www.pexels.com/api/) or run the following command and replace `<your_api_key>` with your original [Pexels API key](https://www.pexels.com/api/)
+```
+cat > .env .env.example
+```
+
+## Step 5:
+Run the project
+```
+flutter run
+```
+
+# Folder Structure
+```
+lib/
+┣ core/
+┃ ┣ configs/
+┃ ┃ ┗ configs.dart
+┃ ┣ exceptions/
+┃ ┣ models/
+┃ ┃ ┗ paginated_data.dart
+┃ ┣ services/
+┃ ┃ ┗ http/
+┃ ┗ widgets/
+┃   ┗ fake_search_bar.dart
+┣ features/
+┃ ┣ photo_search/
+┃ ┃ ┣ providers/
+┃ ┃ ┣ repositories/
+┃ ┃ ┗ widget/
+┃ ┣ popular_photos/
+┃ ┃ ┣ models/
+┃ ┃ ┣ providers/
+┃ ┃ ┣ repositories/
+┃ ┃ ┗ widget/
+┃ ┣ popular_videos/
+┃ ┃ ┣ models/
+┃ ┃ ┣ providers/
+┃ ┃ ┣ repositories/
+┃ ┃ ┗ widget/
+┃ ┗ video_search/
+┃   ┣ models/
+┃   ┣ providers/
+┃   ┣ repositories/
+┃   ┗ widget/
+┣ screens/
+┃ ┗ home.dart
+┗ main.dart
+```
