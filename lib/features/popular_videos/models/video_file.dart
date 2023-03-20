@@ -19,8 +19,8 @@ class VideoFile {
         id: json["id"],
         quality: json["quality"],
         fileType: json["file_type"],
-        width: json["width"],
-        height: json["height"],
+        width: json["width"]??0,
+        height: json["height"]??0,
         link: json["link"],
       );
 

@@ -22,25 +22,18 @@ class Video {
   final User user;
   final List<VideoFile> videoFiles;
 
-  static Video? fromJson(Map<String, dynamic> json) {
-    Video? video;
-
-    try {
-      video = Video(
-        id: json["id"],
-        width: json["width"],
-        height: json["height"],
-        url: json["url"],
-        image: json["image"],
-        duration: json["duration"],
-        user: User.fromJson(json["user"]),
-        videoFiles: List<VideoFile>.from(
-            json["video_files"].map((x) => VideoFile.fromJson(x))),
-      );
-    } catch (_) {
-      video = null;
-    }
-    return video;
+  factory Video.fromJson(Map<String, dynamic> json) {
+    return Video(
+      id: json["id"],
+      width: json["width"],
+      height: json["height"],
+      url: json["url"],
+      image: json["image"],
+      duration: json["duration"],
+      user: User.fromJson(json["user"]),
+      videoFiles: List<VideoFile>.from(
+          json["video_files"].map((x) => VideoFile.fromJson(x))),
+    );
   }
 
   Map<String, dynamic> toJson() => {

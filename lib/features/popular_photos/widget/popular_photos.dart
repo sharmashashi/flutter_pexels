@@ -39,7 +39,9 @@ class PopularPhotos extends ConsumerWidget {
                       return PhotoCard(photo: photo);
                     },
                   ),
-              error: (err, stacktrace) => const Text("Something went wrong!"),
+              error: (err, stacktrace) {
+                return const Text("Something went wrong!");
+              },
               loading: () => const Center(
                     child: CircularProgressIndicator(),
                   )),
