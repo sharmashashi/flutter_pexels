@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_pexels/features/popular_photos/providers/background_color_provider.dart';
 import 'package:flutter_pexels/features/popular_videos/widget/video_widget.dart';
 import 'package:flutter_pexels/features/video_search/providers/query_provider.dart';
 import 'package:flutter_pexels/features/video_search/providers/video_search_provider.dart';
@@ -11,7 +12,10 @@ class VideoSearch extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     const border = OutlineInputBorder();
     final videos = ref.watch(videoSearchProvider);
+    final backgroundColor = ref.watch(backgroundColorProvider);
+
     return Scaffold(
+      backgroundColor: backgroundColor,
       body: SafeArea(
         child: Column(
           children: [
@@ -40,12 +44,9 @@ class VideoSearch extends ConsumerWidget {
                           if (index + 1 == data.results.length) {
                             ref.read(videoSearchProvider.notifier).fetchNext();
                           }
-
+                          final video = data.results[index];
                           return VideoWidget(
-                              url: data.results[index].videoFiles
-                                  .firstWhere(
-                                      (element) => element.quality == 'hd')
-                                  .link);
+                              video: video);
                         },
                       );
                     },

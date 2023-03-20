@@ -5,7 +5,7 @@ import 'package:flutter_pexels/features/popular_photos/repositories/popular_phot
 
 class PopularPhotosRepositoryImpl implements PopularPhotosRepository {
   @override
-  String get path => '/curated';
+  String get path => '/v1/curated';
 
   PopularPhotosRepositoryImpl(this.httpService);
 

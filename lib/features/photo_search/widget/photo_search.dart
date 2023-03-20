@@ -1,7 +1,8 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_pexels/features/photo_search/providers/photo_search_provider.dart';
 import 'package:flutter_pexels/features/photo_search/providers/query_provider.dart';
+import 'package:flutter_pexels/features/popular_photos/providers/background_color_provider.dart';
+import 'package:flutter_pexels/features/popular_photos/widget/photo_card.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class PhotoSearch extends ConsumerWidget {
@@ -11,7 +12,9 @@ class PhotoSearch extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     const border = OutlineInputBorder();
     final photos = ref.watch(photoSearchProvider);
+    final backgroundColor = ref.watch(backgroundColorProvider);
     return Scaffold(
+      backgroundColor: backgroundColor,
       body: SafeArea(
         child: Column(
           children: [
@@ -32,7 +35,7 @@ class PhotoSearch extends ConsumerWidget {
             ),
             Expanded(
                 child: photos.when(
-                    data: (data) => PageView.builder(
+                    data: (data) => ListView.builder(
                           scrollDirection: Axis.vertical,
                           itemCount: data.results.length,
                           itemBuilder: (context, index) {
@@ -41,16 +44,7 @@ class PhotoSearch extends ConsumerWidget {
                                   .read(photoSearchProvider.notifier)
                                   .fetchNext();
                             }
-                            return CachedNetworkImage(
-                              fit: BoxFit.contain,
-                              imageUrl:
-                                  data.results[index].source.original ?? "",
-                              progressIndicatorBuilder:
-                                  (context, url, progress) => Image.network(
-                                data.results[index].source.medium ?? "",
-                                fit: BoxFit.contain,
-                              ),
-                            );
+                            return PhotoCard(photo: data.results[index]);
                           },
                         ),
                     error: (err, stacktrace) =>

@@ -7,7 +7,7 @@ class PhotoSearchRepositoryImpl implements PhotoSearchRepository {
   HttpService httpService;
   PhotoSearchRepositoryImpl(this.httpService);
   @override
-  String get photoPath => '/search';
+  String get photoPath => '/v1/search';
 
   @override
   Future<PopularPhotosResponse> searchPhotos(

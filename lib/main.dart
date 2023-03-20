@@ -8,7 +8,7 @@ void main() async {
   await dotenv.load(fileName: '.env');
   runApp(ProviderScope(
     child: MaterialApp(
-      themeMode: ThemeMode.dark,
+      themeMode: ThemeMode.light,
       home: const Home(),
       theme: FlexThemeData.light(useMaterial3: true, scheme: FlexScheme.green),
       darkTheme:

@@ -34,11 +34,8 @@ class PopularVideos extends ConsumerWidget {
                     if (index + 1 == data.results.length) {
                       ref.read(popularVideosProvider.notifier).fetchNext();
                     }
-
-                    return VideoWidget(
-                        url: data.results[index].videoFiles
-                            .firstWhere((element) => element.quality == 'hd')
-                            .link);
+                    final video = data.results[index];
+                    return VideoWidget(video: video);
                   },
                 );
               },
